@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Περί Ανθέων | Florist in Chania</title>
+  <meta name="description" content="Περί Ανθέων - Ανθοπωλείο στα Χανιά με νυφικά, ανθοσυνθέσεις, εποχιακά λουλούδια και μοναδικές δημιουργίες." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8faf7;
+      --bg-soft: #f3f7f1;
+      --white: #ffffff;
+      --green: #4f6a57;
+      --green-dark: #35503e;
+      --green-light: #dce9de;
+      --blush: #e9c6cc;
+      --blush-deep: #d7a4ac;
+      --text: #2f3a33;
+      --muted: #6d7a72;
+      --shadow: 0 16px 42px rgba(53, 80, 62, 0.14);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+      --container: min(1140px, 92vw);
+      --transition: all 0.35s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Jost", "Segoe UI", "Noto Sans", "Arial", sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, var(--bg) 0%, #fefdfd 50%, #f6faf8 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    .top-announcement {
+      background: linear-gradient(90deg, #f7dfe5, #fbeef1);
+      color: #5b3842;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(184, 133, 144, 0.24);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      font-weight: 700;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      color: var(--green-dark);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .section-subtitle {
+      max-width: 760px;
+      color: var(--muted);
+      margin-bottom: 44px;
+      font-size: 1.05rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    .petal-cursor {
+      width: 20px;
+      height: 20px;
+      border-radius: 60% 40% 65% 35%;
+      position: fixed;
+      background: radial-gradient(circle at 30% 30%, #ffd8df 0%, #f5bac6 55%, #dc97a8 100%);
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8), 0 8px 18px rgba(215, 164, 172, 0.45);
+      pointer-events: none;
+      transform: translate(-50%, -50%) rotate(24deg);
+      z-index: 9999;
+      transition: transform 0.12s ease-out;
+      mix-blend-mode: multiply;
+    }
+
+    .petal-cursor.active {
+      transform: translate(-50%, -50%) rotate(14deg) scale(1.2);
+    }
+
+    .floating-petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .floating-petals span {
+      position: absolute;
+      width: 12px;
+      height: 18px;
+      border-radius: 60% 40% 65% 35%;
+      background: linear-gradient(180deg, rgba(247, 203, 212, 0.7), rgba(230, 173, 186, 0.4));
+      animation: fall linear infinite;
+      opacity: 0.8;
+      filter: blur(0.2px);
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-15vh) rotate(0deg) translateX(0);
+      }
+      50% {
+        transform: translateY(50vh) rotate(140deg) translateX(24px);
+      }
+      100% {
+        transform: translateY(110vh) rotate(300deg) translateX(-20px);
+      }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(79, 106, 87, 0.1);
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    header.nav-solid {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 12px 28px rgba(22, 36, 28, 0.16);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--green-dark);
+    }
+
+    .brand-mark {
+      width: 92px;
+      height: 46px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(53, 80, 62, 0.16));
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 2px;
+      background: var(--blush-deep);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--green-dark);
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      border: 1px solid rgba(79, 106, 87, 0.2);
+      border-radius: 999px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 8px 22px rgba(79, 106, 87, 0.08);
+    }
+
+    .lang-toggle button {
+      border: 0;
+      background: transparent;
+      padding: 8px 14px;
+      font-weight: 700;
+      color: var(--green);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .lang-toggle button.active {
+      background: linear-gradient(130deg, var(--green-light), #f3e2e6);
+      color: var(--green-dark);
+    }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-background {
+      position: absolute;
+      inset: -6% 0 0;
+      background-image: url("images/654956254_1419291786663736_4684500665179874706_n.jpg");
+      background-size: cover;
+      background-position: center 35%;
+      transform: translateY(0);
+      will-change: transform;
+      z-index: -2;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(248, 245, 240, 0.55);
+      z-index: -1;
+    }
+
+    .hero-inner {
+      text-align: center;
+      max-width: 920px;
+      padding: 120px 0 96px;
+    }
+
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      line-height: 1.1;
+      margin-bottom: 14px;
+      color: var(--green-dark);
+      text-wrap: balance;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 1px;
+      background: var(--blush-deep);
+      margin: 0 auto 18px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 30px;
+      max-width: 520px;
+      text-align: center;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero .btn-primary {
+      background: var(--green-dark);
+      color: #fff;
+      border-color: var(--green-dark);
+      box-shadow: 0 12px 26px rgba(53, 80, 62, 0.25);
+    }
+
+    .hero .btn-soft {
+      background: transparent;
+      border: 1px solid rgba(53, 80, 62, 0.5);
+      color: var(--green-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 12px 22px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    button:active,
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: linear-gradient(140deg, var(--green), var(--green-dark));
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(53, 80, 62, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(53, 80, 62, 0.3);
+    }
+
+    .btn-soft {
+      background: #fff7f9;
+      border-color: rgba(215, 164, 172, 0.5);
+      color: var(--green-dark);
+    }
+
+    .btn-soft:hover {
+      background: #fff;
+      transform: translateY(-2px);
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .service-card,
+    .product-card,
+    .testimonial,
+    .about-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(79, 106, 87, 0.1);
+      box-shadow: 0 10px 24px rgba(79, 106, 87, 0.08);
+    }
+
+    .service-card {
+      padding: 14px 14px 18px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(130deg, rgba(220, 233, 222, 0.5), rgba(241, 218, 224, 0.35));
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 34px rgba(79, 106, 87, 0.16);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background: var(--blush-deep);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+      z-index: 2;
+    }
+
+    .service-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .service-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 20px rgba(53, 80, 62, 0.14);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      font-size: 1.32rem;
+      background: linear-gradient(140deg, #e9f2e9, #f8e6ea);
+    }
+
+    .service-card h3 {
+      margin-bottom: 8px;
+      color: var(--green-dark);
+      font-size: 1.12rem;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .products-grid {
+      columns: 3;
+      column-gap: 12px;
+    }
+
+    .product-card {
+      position: relative;
+      width: 100%;
+      display: block;
+      break-inside: avoid;
+      margin-bottom: 12px;
+      overflow: hidden;
+      border-radius: 0;
+      border: 0;
+      box-shadow: none;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+      appearance: none;
+    }
+
+    .product-card::before {
+      content: "+";
+      position: absolute;
+      inset: 0;
+      background: rgba(18, 25, 21, 0);
+      color: rgba(255, 255, 255, 0);
+      display: grid;
+      place-items: center;
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1;
+      transition: background 0.35s ease, color 0.35s ease;
+      z-index: 2;
+    }
+
+    .product-card:hover::before {
+      background: rgba(18, 25, 21, 0.38);
+      color: #fff;
+    }
+
+    .product-visual {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 0;
+      transition: transform 0.45s ease;
+    }
+
+    .product-card:hover .product-visual {
+      transform: scale(1.03);
+    }
+
+    .product-card.tall .product-visual {
+      height: 620px;
+    }
+
+    .product-card.medium .product-visual {
+      height: 460px;
+    }
+
+    .product-card.wide .product-visual {
+      height: 310px;
+    }
+
+    .gallery-lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(6, 10, 9, 0.88);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 28px;
+    }
+
+    .gallery-lightbox.open {
+      display: flex;
+    }
+
+    .gallery-lightbox img {
+      max-width: min(1200px, 92vw);
+      max-height: 88vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.4);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fff;
+      font-size: 1.6rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, 0.32);
+      transform: scale(1.05);
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .about-card {
+      padding: 28px 24px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .about-highlight {
+      background: linear-gradient(130deg, #eff7f0, #f9e8ec);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid rgba(79, 106, 87, 0.12);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .about-photo {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      box-shadow: 0 8px 20px rgba(53, 80, 62, 0.16);
+    }
+
+    .about-highlight strong {
+      font-size: 2rem;
+      color: var(--green-dark);
+      line-height: 1;
+    }
+
+    .trust-badge {
+      margin-top: 10px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 1px solid rgba(79, 106, 87, 0.2);
+      border-radius: 10px;
+      padding: 9px 10px;
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .about-highlight span {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .testimonial {
+      padding: 22px 18px;
+      position: relative;
+      background: linear-gradient(165deg, #fff 0%, #f9fbf9 100%);
+    }
+
+    .testimonial-photo {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .testimonial .stars {
+      color: #d4a83c;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    .testimonial p {
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-size: 0.97rem;
+    }
+
+    .testimonial strong {
+      color: var(--green-dark);
+      font-size: 0.95rem;
+    }
+
+    .google-badge {
+      display: inline-block;
+      margin-top: 8px;
+      border: 1px solid rgba(79, 106, 87, 0.2);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #395647;
+      background: #f8fbf8;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(79, 106, 87, 0.12);
+      box-shadow: var(--shadow);
+      padding: 28px 22px;
+    }
+
+    .contact-photo {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 18px rgba(53, 80, 62, 0.15);
+    }
+
+    .contact-item {
+      margin-bottom: 16px;
+    }
+
+    .contact-item h4 {
+      color: var(--green-dark);
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+
+    .contact-item p,
+    .contact-item a {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .map-wrap {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid rgba(79, 106, 87, 0.12);
+      box-shadow: var(--shadow);
+      min-height: 380px;
+      background: #f0f5f1;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      border: 0;
+    }
+
+    footer {
+      position: relative;
+      background: linear-gradient(170deg, #2f4435, #24372a);
+      color: #e7efe9;
+      padding: 46px 0 24px;
+      margin-top: 90px;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blush-deep), #9ac0a0, var(--blush-deep));
+      background-size: 220% 100%;
+      animation: footerLineMove 6s linear infinite;
+    }
+
+    @keyframes footerLineMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 220% 50%;
+      }
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .footer-brand h3 {
+      margin-bottom: 10px;
+      font-size: 1.28rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+    }
+
+    .footer-brand p,
+    .footer-col p,
+    .footer-col a {
+      color: #d7e5da;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .socials a {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(255, 255, 255, 0.12);
+      transition: var(--transition);
+    }
+
+    .socials a:hover {
+      transform: translateY(-2px);
+      background: rgba(233, 198, 204, 0.55);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+      padding-top: 14px;
+      color: #c5d9cb;
+      font-size: 0.88rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .appointment-wrap {
+      background: linear-gradient(150deg, #fcf7f8, #f0f7f1);
+      border: 1px solid rgba(79, 106, 87, 0.12);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 28px 22px;
+    }
+
+    .appointment-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .appointment-form .full {
+      grid-column: 1 / -1;
+    }
+
+    .field-label {
+      font-size: 0.9rem;
+      color: var(--green-dark);
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .appointment-form input,
+    .appointment-form select,
+    .appointment-form textarea {
+      width: 100%;
+      border: 1px solid rgba(79, 106, 87, 0.22);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: #fff;
+      color: var(--text);
+      font: inherit;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .appointment-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .appointment-form input:focus,
+    .appointment-form select:focus,
+    .appointment-form textarea:focus {
+      outline: none;
+      border-color: #7ca288;
+      box-shadow: 0 0 0 4px rgba(124, 162, 136, 0.15);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+      z-index: 1300;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.28);
+    }
+
+    .back-to-top {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--green-dark);
+      border: 1px solid rgba(79, 106, 87, 0.25);
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+      z-index: 1300;
+      opacity: 0;
+      transform: translateY(12px) scale(0.95);
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    .footer-strip {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .footer-strip img {
+      width: 100%;
+      height: 84px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1024px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .products-grid {
+        columns: 2;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-wrap,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 72px 0;
+      }
+
+      .nav {
+        min-height: 68px;
+      }
+
+      .brand span {
+        font-size: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .products-grid {
+        columns: 1;
+      }
+
+      .testimonials-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 6px;
+      }
+
+      .testimonials-grid::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .testimonials-grid::-webkit-scrollbar-thumb {
+        background: rgba(79, 106, 87, 0.28);
+        border-radius: 999px;
+      }
+
+      .testimonial {
+        min-width: 82vw;
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+      }
+
+      .hero {
+        min-height: calc(100vh - 56px);
+      }
+
+      .appointment-form {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-announcement" data-i18n="announcementBar">
+    🌸 Ημέρα της Μητέρας — Παράγγειλε την ανθοδέσμη σου τώρα! | Mother's Day — Order your bouquet now!
+  </div>
+  <div class="petal-cursor" aria-hidden="true"></div>
+  <div class="floating-petals" aria-hidden="true">
+    <span style="left: 6%; animation-duration: 16s; animation-delay: -2s;"></span>
+    <span style="left: 18%; animation-duration: 12s; animation-delay: -5s;"></span>
+    <span style="left: 28%; animation-duration: 14s; animation-delay: -1s;"></span>
+    <span style="left: 42%; animation-duration: 11s; animation-delay: -7s;"></span>
+    <span style="left: 54%; animation-duration: 17s; animation-delay: -4s;"></span>
+    <span style="left: 67%; animation-duration: 13s; animation-delay: -8s;"></span>
+    <span style="left: 79%; animation-duration: 15s; animation-delay: -3s;"></span>
+    <span style="left: 92%; animation-duration: 18s; animation-delay: -6s;"></span>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Περί Ανθέων αρχική">
+        <img class="brand-mark" src="images/peri-removebg-preview.png" alt="Περί Ανθέων logo" />
+        <span class="sr-only" data-i18n="brand">Περί Ανθέων</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services" data-i18n="navServices">Υπηρεσίες</a>
+        <a href="#gallery" data-i18n="navGallery">Συνθέσεις</a>
+        <a href="#about" data-i18n="navAbout">Σχετικά</a>
+        <a href="#reviews" data-i18n="navReviews">Κριτικές</a>
+        <a href="#contact" data-i18n="navContact">Επικοινωνία</a>
+      </nav>
+
+      <div class="lang-toggle" role="group" aria-label="Language switcher">
+        <button class="active" data-lang="el" aria-pressed="true">GR</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-background" aria-hidden="true"></div>
+      <div class="hero-overlay" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy reveal">
+          <h1 data-i18n="heroTitle">Η τέχνη των λουλουδιών στην καρδιά των Χανίων</h1>
+          <div class="hero-divider" aria-hidden="true"></div>
+          <p data-i18n="heroText">
+            Στο Περί Ανθέων δημιουργούμε ανθοσυνθέσεις με συναίσθημα, χαρακτήρα και μεσογειακή φινέτσα.
+            Από νυφικές ανθοδέσμες μέχρι καθημερινές ανθοδέσμες, κάθε σύνθεση είναι μια ιστορία.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#appointment" data-i18n="heroCtaPrimary">Κλείστε Ραντεβού</a>
+            <a class="btn btn-soft" href="#gallery" data-i18n="heroCtaSecondary">Δείτε Συλλογή</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="servicesTitle">Υπηρεσίες</h2>
+        <p class="section-subtitle reveal" data-i18n="servicesSubtitle">
+          Προσφέρουμε επιμελημένες floral υπηρεσίες για κάθε στιγμή που αξίζει να μείνει αξέχαστη.
+        </p>
+        <div class="grid-4">
+          <article class="service-card reveal">
+            <img class="service-image" src="images/608215984_1356719569587625_7530684905355105549_n.jpg" alt="Νυφική ανθοδέσμη με κόκκινα τριαντάφυλλα" />
+            <div class="service-icon">💐</div>
+            <h3 data-i18n="service1Title">Γάμος</h3>
+            <p data-i18n="service1Text">Νυφικές ανθοδέσμες, στολισμός εκκλησίας και venue με προσωπική αισθητική.</p>
+          </article>
+          <article class="service-card reveal">
+            <img class="service-image" src="images/654368066_1419291999997048_5870167181360514950_n.jpg" alt="Πολύχρωμη ανοιξιάτικη ανθοδέσμη" />
+            <div class="service-icon">✨</div>
+            <h3 data-i18n="service2Title">Εκδηλώσεις</h3>
+            <p data-i18n="service2Text">Floral concepts για βαπτίσεις, εταιρικά events και private gatherings.</p>
+          </article>
+          <article class="service-card reveal">
+            <img class="service-image" src="images/655051185_1421971339729114_3706716321387393980_n.jpg" alt="Τουλίπες σε έντονες αποχρώσεις" />
+            <div class="service-icon">🌸</div>
+            <h3 data-i18n="service3Title">Καθημερινές Ανθοδέσμες</h3>
+            <p data-i18n="service3Text">Φρέσκιες ανθοδέσμες ημέρας για δώρο, χώρο εργασίας ή το σπίτι σας.</p>
+          </article>
+          <article class="service-card reveal">
+            <img class="service-image" src="images/661006019_1427684139157834_3290039459349007929_n.jpg" alt="Καλλωπιστικό φυτό σε βιτρίνα ανθοπωλείου" />
+            <div class="service-icon">🍃</div>
+            <h3 data-i18n="service4Title">Εποχιακές Συνθέσεις</h3>
+            <p data-i18n="service4Text">Συνδυασμοί λουλουδιών και φυτών που ακολουθούν την εποχή και το στυλ σας.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="galleryTitle">Featured Συνθέσεις</h2>
+        <p class="section-subtitle reveal" data-i18n="gallerySubtitle">
+          Επιλεγμένες δημιουργίες από το ανθοπωλείο μας που συνδυάζουν ρομαντισμό και μοντέρνα αισθητική.
+        </p>
+        <div class="products-grid">
+          <button class="product-card gallery-item tall reveal" type="button" data-image="images/654956254_1419291786663736_4684500665179874706_n.jpg" aria-label="Open gallery image">
+            <img class="product-visual" src="images/654956254_1419291786663736_4684500665179874706_n.jpg" alt="Ρομαντικά τριαντάφυλλα σε απαλό ροζ" />
+          </button>
+          <button class="product-card gallery-item medium reveal" type="button" data-image="images/655170272_1421970946395820_4361956404036132903_n.jpg" aria-label="Open gallery image">
+            <img class="product-visual" src="images/655170272_1421970946395820_4361956404036132903_n.jpg" alt="Σύνθεση με δίχρωμα ροζ τριαντάφυλλα" />
+          </button>
+          <button class="product-card gallery-item medium reveal" type="button" data-image="images/658147189_1421971209729127_2599414668887802163_n.jpg" aria-label="Open gallery image">
+            <img class="product-visual" src="images/658147189_1421971209729127_2599414668887802163_n.jpg" alt="Λευκές τουλίπες σε κομψή σύνθεση" />
+          </button>
+          <button class="product-card gallery-item wide reveal" type="button" data-image="images/655472059_1419291889997059_8929338051903322123_n.jpg" aria-label="Open gallery image">
+            <img class="product-visual" src="images/655472059_1419291889997059_8929338051903322123_n.jpg" alt="Πολύχρωμη ανοιξιάτικη ανθοσύνθεση" />
+          </button>
+          <button class="product-card gallery-item tall reveal" type="button" data-image="images/655051185_1421971339729114_3706716321387393980_n.jpg" aria-label="Open gallery image">
+            <img class="product-visual" src="images/655051185_1421971339729114_3706716321387393980_n.jpg" alt="Ροζ τουλίπες με πράσινα φύλλα" />
+          </button>
+          <button class="product-card gallery-item medium reveal" type="button" data-image="images/656826879_1421971449729103_114821947347473907_n.jpg" aria-label="Open gallery image">
+            <img class="product-visual" src="images/656826879_1421971449729103_114821947347473907_n.jpg" alt="Μπλε τουλίπες κοντινή λήψη" />
+          </button>
+          <button class="product-card gallery-item tall reveal" type="button" data-image="images/657228165_1422727852986796_7565534410334029864_n.jpg" aria-label="Open gallery image">
+            <img class="product-visual" src="images/657228165_1422727852986796_7565534410334029864_n.jpg" alt="Λευκές και μπλε τουλίπες" />
+          </button>
+          <button class="product-card gallery-item wide reveal" type="button" data-image="images/659084870_1421971086395806_5421217390132207893_n.jpg" aria-label="Open gallery image">
+            <img class="product-visual" src="images/659084870_1421971086395806_5421217390132207893_n.jpg" alt="Κίτρινες και κόκκινες τουλίπες" />
+          </button>
+          <button class="product-card gallery-item tall reveal" type="button" data-image="images/608215984_1356719569587625_7530684905355105549_n.jpg" aria-label="Open gallery image">
+            <img class="product-visual" src="images/608215984_1356719569587625_7530684905355105549_n.jpg" alt="Κόκκινα τριαντάφυλλα σε έντονο μπουκέτο" />
+          </button>
+          <button class="product-card gallery-item wide reveal" type="button" data-image="images/654368066_1419291999997048_5870167181360514950_n.jpg" aria-label="Open gallery image">
+            <img class="product-visual" src="images/654368066_1419291999997048_5870167181360514950_n.jpg" alt="Πολύχρωμη ανθοδέσμη φρέζιες" />
+          </button>
+          <button class="product-card gallery-item medium reveal" type="button" data-image="images/661006019_1427684139157834_3290039459349007929_n.jpg" aria-label="Open gallery image">
+            <img class="product-visual" src="images/661006019_1427684139157834_3290039459349007929_n.jpg" alt="Εποχιακό ανθοφόρο φυτό" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-wrap">
+        <article class="about-card reveal">
+          <h2 class="section-title" data-i18n="aboutTitle">Σχετικά με εμάς</h2>
+          <p data-i18n="aboutP1">
+            Το Περί Ανθέων γεννήθηκε από την αγάπη και το μεράκι γύρω από τα λουλούδια.
+            Δημιουργήθηκε με προσωπική δουλειά και σκοπό να υπηρετεί με πάθος και αγάπη το επάγγελμα.
+          </p>
+          <p data-i18n="aboutP2">
+            Κάθε ανθοσύνθεση είναι μια ιστορία — η δική σας ιστορία.
+          </p>
+        </article>
+        <aside class="about-highlight reveal">
+          <img class="about-photo" src="images/657228165_1422727852986796_7565534410334029864_n.jpg" alt="Τουλίπες λευκές και μπλε σε ανθοδέσμη" />
+          <strong>5.0 ★</strong>
+          <span data-i18n="aboutBadge1">Top-rated florist in Chania</span>
+          <span data-i18n="aboutBadge2">Χειροποίητες συνθέσεις με καθημερινά φρέσκα λουλούδια</span>
+          <span data-i18n="aboutBadge3">Προσωπική εξυπηρέτηση και custom προτάσεις</span>
+          <div class="trust-badge" data-i18n="trustBadge">⭐ 5 αστέρια στο Google — Top rated florist in Chania</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <h2 class="section-title reveal">Google Reviews</h2>
+        <p class="section-subtitle reveal">
+          Αληθινές κριτικές πελατών για την ποιότητα, τη φροντίδα και την εξυπηρέτηση του Περί Ανθέων.
+        </p>
+        <div class="testimonials-grid">
+          <article class="testimonial reveal">
+            <div class="stars">★★★★★</div>
+            <p>"Needed four small bouquets on short notice, and this flower shop prepared everything fast with incredible attention to detail. Each bouquet was beautifully arranged and clearly made with care. Great service, great quality, highly recommend!"</p>
+            <strong>- Andrei Rakhmanov</strong>
+            <span class="google-badge">Google Review</span>
+          </article>
+          <article class="testimonial reveal">
+            <div class="stars">★★★★★</div>
+            <p>"Πολύ όμορφα λολούδια και ανθη! Και πολύ γλυκιά η εξυπηρέτηση! Ευγενική και προσχαρή! Σίγουρα θα ξαναπάω!"</p>
+            <strong>- Sofia Bertaki</strong>
+            <span class="google-badge">Google Review</span>
+          </article>
+          <article class="testimonial reveal">
+            <div class="stars">★★★★★</div>
+            <p>"Εξαιρετικό κατάστημα με μεγάλη ποικιλία φυτών."</p>
+            <strong>- Kostas Avramopoulos</strong>
+            <span class="google-badge">Google Review</span>
+          </article>
+          <article class="testimonial reveal">
+            <div class="stars">★★★★★</div>
+            <p>"Πολύ ωραία λουλούδια...άψογη εξυπηρέτηση."</p>
+            <strong>- Αναστάσης Σάρρης</strong>
+            <span class="google-badge">Google Review</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="contactTitle">Επικοινωνία</h2>
+        <p class="section-subtitle reveal" data-i18n="contactSubtitle">
+          Επισκεφθείτε μας στο κέντρο των Χανίων ή καλέστε μας για να σχεδιάσουμε μαζί την επόμενη ανθοσύνθεσή σας.
+        </p>
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <img class="contact-photo" src="images/655472059_1419291889997059_8929338051903322123_n.jpg" alt="Φρέσκα λουλούδια από το ανθοπωλείο Περί Ανθέων" />
+            <div class="contact-item">
+              <h4 data-i18n="contactAddressTitle">Διεύθυνση</h4>
+              <p data-i18n="contactAddress">Σελίνου 38 & Αγίου Κωνσταντίνου 1, Chania 731 32</p>
+            </div>
+            <div class="contact-item">
+              <h4 data-i18n="contactPhoneTitle">Τηλέφωνο</h4>
+              <a href="tel:+302821002449">2821 002449</a>
+            </div>
+            <div class="contact-item">
+              <h4 data-i18n="contactWebTitle">Ιστότοπος</h4>
+              <a href="https://periantheon.gr" target="_blank" rel="noreferrer">periantheon.gr</a>
+            </div>
+            <div class="contact-item">
+              <h4 data-i18n="contactRatingTitle">Αξιολόγηση</h4>
+              <p data-i18n="contactRating">5.0 stars with 7 reviews - Florist in Chania</p>
+            </div>
+          </div>
+          <div class="map-wrap reveal">
+            <iframe
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Map - Peri Antheon Chania"
+              src="https://www.google.com/maps?q=%CE%A3%CE%B5%CE%BB%CE%AF%CE%BD%CE%BF%CF%85+38+%26+%CE%91%CE%B3%CE%AF%CE%BF%CF%85+%CE%9A%CF%89%CE%BD%CF%83%CF%84%CE%B1%CE%BD%CF%84%CE%AF%CE%BD%CE%BF%CF%85+1,+Chania+731+32&output=embed">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="appointment">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="appointmentTitle">Ραντεβού / Επικοινωνία</h2>
+        <p class="section-subtitle reveal" data-i18n="appointmentSubtitle">
+          Συμπληρώστε τα στοιχεία σας και θα ανοίξει WhatsApp με έτοιμο μήνυμα για άμεση επικοινωνία.
+        </p>
+        <div class="appointment-wrap reveal">
+          <form id="appointmentForm" class="appointment-form">
+            <div>
+              <label class="field-label" for="occasion" data-i18n="fieldOccasion">Περίσταση</label>
+              <select id="occasion" name="occasion" required>
+                <option value="Γάμος / Wedding">Γάμος / Wedding</option>
+                <option value="Βάπτιση / Baptism">Βάπτιση / Baptism</option>
+                <option value="Γενέθλια / Birthday">Γενέθλια / Birthday</option>
+                <option value="Δώρο / Gift">Δώρο / Gift</option>
+                <option value="Άλλο / Other">Άλλο / Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="field-label" for="date" data-i18n="fieldDate">Προτιμώμενη ημερομηνία</label>
+              <input id="date" name="date" type="date" required />
+            </div>
+            <div class="full">
+              <label class="field-label" for="colors" data-i18n="fieldColors">Χρωματικές προτιμήσεις</label>
+              <input id="colors" name="colors" type="text" placeholder="π.χ. λευκό, dusty rose, πράσινο" />
+            </div>
+            <div class="full">
+              <label class="field-label" for="message" data-i18n="fieldMessage">Μήνυμα</label>
+              <textarea id="message" name="message" placeholder="Πείτε μας λίγες λεπτομέρειες για την ανθοσύνθεση που θέλετε..."></textarea>
+            </div>
+            <div class="full">
+              <button class="btn btn-primary" type="submit" data-i18n="formSubmit">Αποστολή μέσω WhatsApp</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 data-i18n="footerBrand">Περί Ανθέων</h3>
+          <p data-i18n="footerDesc">Elegant floral design studio στα Χανιά με έμφαση στην ποιότητα, την αισθητική και τη λεπτομέρεια.</p>
+          <div class="footer-strip">
+            <img src="images/655051185_1421971339729114_3706716321387393980_n.jpg" alt="Ροζ τουλίπες" />
+            <img src="images/608215984_1356719569587625_7530684905355105549_n.jpg" alt="Κόκκινη ανθοδέσμη" />
+          </div>
+          <div class="socials">
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram">◎</a>
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook">f</a>
+            <a href="https://www.pinterest.com" target="_blank" rel="noreferrer" aria-label="Pinterest">P</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footerHoursTitle">Ώρες Λειτουργίας</h4>
+          <p data-i18n="hours1">Δευτέρα - Παρασκευή: 09:00 - 20:00</p>
+          <p data-i18n="hours2">Σάββατο: 09:00 - 17:00</p>
+          <p data-i18n="hours3">Κυριακή: Κατόπιν ραντεβού</p>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footerContactTitle">Άμεση Επικοινωνία</h4>
+          <a href="tel:+302821002449">2821 002449</a>
+          <a href="mailto:hello@periantheon.gr">hello@periantheon.gr</a>
+          <a href="https://periantheon.gr" target="_blank" rel="noreferrer">periantheon.gr</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span data-i18n="footerBottomLeft">© <span id="year"></span> Περί Ανθέων. Με αγάπη για τα λουλούδια.</span>
+        <span data-i18n="footerBottomRight">Chania, Crete, Greece</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close gallery image">×</button>
+    <img id="lightboxImage" src="" alt="Gallery image full screen" />
+  </div>
+
+  <a class="whatsapp-float" href="https://wa.me/302821002449" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+    💬
+  </a>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">✿</button>
+
+  <script>
+    const i18n = {
+      el: {
+        brand: "Περί Ανθέων",
+        announcementBar: "🌸 Ημέρα της Μητέρας — Παράγγειλε την ανθοδέσμη σου τώρα! | Mother's Day — Order your bouquet now!",
+        navServices: "Υπηρεσίες",
+        navGallery: "Συνθέσεις",
+        navAbout: "Σχετικά",
+        navReviews: "Κριτικές",
+        navContact: "Επικοινωνία",
+        heroTitle: "Η τέχνη των λουλουδιών στην καρδιά των Χανίων",
+        heroText: "Στο Περί Ανθέων δημιουργούμε ανθοσυνθέσεις με συναίσθημα, χαρακτήρα και μεσογειακή φινέτσα. Από νυφικές ανθοδέσμες μέχρι καθημερινές ανθοδέσμες, κάθε σύνθεση είναι μια ιστορία.",
+        heroCtaPrimary: "Κλείστε Ραντεβού",
+        heroCtaSecondary: "Δείτε Συλλογή",
+        ratingTitle: "5.0 stars with 7 reviews | Florist in Chania",
+        ratingSub: "Σελίνου 38 & Αγίου Κωνσταντίνου 1, Chania 731 32",
+        servicesTitle: "Υπηρεσίες",
+        servicesSubtitle: "Προσφέρουμε επιμελημένες floral υπηρεσίες για κάθε στιγμή που αξίζει να μείνει αξέχαστη.",
+        service1Title: "Γάμος",
+        service1Text: "Νυφικές ανθοδέσμες, στολισμός εκκλησίας και venue με προσωπική αισθητική.",
+        service2Title: "Εκδηλώσεις",
+        service2Text: "Floral concepts για βαπτίσεις, εταιρικά events και private gatherings.",
+        service3Title: "Καθημερινές Ανθοδέσμες",
+        service3Text: "Φρέσκιες ανθοδέσμες ημέρας για δώρο, χώρο εργασίας ή το σπίτι σας.",
+        service4Title: "Εποχιακές Συνθέσεις",
+        service4Text: "Συνδυασμοί λουλουδιών και φυτών που ακολουθούν την εποχή και το στυλ σας.",
+        galleryTitle: "Featured Συνθέσεις",
+        gallerySubtitle: "Επιλεγμένες δημιουργίες από το ανθοπωλείο μας που συνδυάζουν ρομαντισμό και μοντέρνα αισθητική.",
+        prod1Title: "Blush Romance",
+        prod1Text: "Τριαντάφυλλα, παιώνιες και ευκάλυπτος σε απαλές ροζ αποχρώσεις.",
+        prod2Title: "Cretan Garden",
+        prod2Text: "Μεσογειακά άνθη και πρασινάδες σε φυσική, κομψή διάταξη.",
+        prod3Title: "White Elegance",
+        prod3Text: "Λευκές ορτανσίες και lisianthus για ιδιαίτερες, chic στιγμές.",
+        aboutTitle: "Σχετικά με εμάς",
+        aboutP1: "Το Περί Ανθέων γεννήθηκε από την αγάπη και το μεράκι γύρω από τα λουλούδια. Δημιουργήθηκε με προσωπική δουλειά και σκοπό να υπηρετεί με πάθος και αγάπη το επάγγελμα.",
+        aboutP2: "Κάθε ανθοσύνθεση είναι μια ιστορία — η δική σας ιστορία.",
+        aboutBadge1: "Top-rated florist in Chania",
+        aboutBadge2: "Χειροποίητες συνθέσεις με καθημερινά φρέσκα λουλούδια",
+        aboutBadge3: "Προσωπική εξυπηρέτηση και custom προτάσεις",
+        trustBadge: "⭐ 5 αστέρια στο Google — Top rated florist in Chania",
+        reviewsTitle: "Τι λένε οι πελάτες μας",
+        reviewsSubtitle: "Αληθινές εμπειρίες από ανθρώπους που μας εμπιστεύτηκαν τις πιο σημαντικές στιγμές τους.",
+        test1Text: "Εξαιρετική ποιότητα λουλουδιών και εκπληκτική εξυπηρέτηση. Η νυφική ανθοδέσμη ήταν ονειρική.",
+        test1Name: "- Μαρία Κ.",
+        test2Text: "Οι συνθέσεις τους έχουν άποψη και διάρκεια. Το καλύτερο ανθοπωλείο στην πόλη.",
+        test2Name: "- Γιώργος Π.",
+        test3Text: "Ζεστοί άνθρωποι, δημιουργικότητα και επαγγελματισμός. Το συνιστώ ανεπιφύλακτα.",
+        test3Name: "- Elena S.",
+        contactTitle: "Επικοινωνία",
+        contactSubtitle: "Επισκεφθείτε μας στο κέντρο των Χανίων ή καλέστε μας για να σχεδιάσουμε μαζί την επόμενη ανθοσύνθεσή σας.",
+        contactAddressTitle: "Διεύθυνση",
+        contactAddress: "Σελίνου 38 & Αγίου Κωνσταντίνου 1, Chania 731 32",
+        contactPhoneTitle: "Τηλέφωνο",
+        contactWebTitle: "Ιστότοπος",
+        contactRatingTitle: "Αξιολόγηση",
+        contactRating: "5.0 stars with 7 reviews - Florist in Chania",
+        appointmentTitle: "Ραντεβού / Επικοινωνία",
+        appointmentSubtitle: "Συμπληρώστε τα στοιχεία σας και θα ανοίξει WhatsApp με έτοιμο μήνυμα για άμεση επικοινωνία.",
+        fieldOccasion: "Περίσταση",
+        fieldDate: "Προτιμώμενη ημερομηνία",
+        fieldColors: "Χρωματικές προτιμήσεις",
+        fieldMessage: "Μήνυμα",
+        formSubmit: "Αποστολή μέσω WhatsApp",
+        footerBrand: "Περί Ανθέων",
+        footerDesc: "Elegant floral design studio στα Χανιά με έμφαση στην ποιότητα, την αισθητική και τη λεπτομέρεια.",
+        footerHoursTitle: "Ώρες Λειτουργίας",
+        hours1: "Δευτέρα - Παρασκευή: 09:00 - 20:00",
+        hours2: "Σάββατο: 09:00 - 17:00",
+        hours3: "Κυριακή: Κατόπιν ραντεβού",
+        footerContactTitle: "Άμεση Επικοινωνία",
+        footerBottomLeft: "© " + new Date().getFullYear() + " Περί Ανθέων. Με αγάπη για τα λουλούδια.",
+        footerBottomRight: "Chania, Crete, Greece"
+      },
+      en: {
+        brand: "Peri Antheon",
+        announcementBar: "🌸 Mother's Day — Order your bouquet now! | Ημέρα της Μητέρας — Παράγγειλε την ανθοδέσμη σου τώρα!",
+        navServices: "Services",
+        navGallery: "Arrangements",
+        navAbout: "About",
+        navReviews: "Reviews",
+        navContact: "Contact",
+        heroTitle: "The art of flowers in the heart of Chania",
+        heroText: "At Peri Antheon, we craft floral creations with emotion, character, and Mediterranean elegance. From bridal bouquets to everyday blooms, every arrangement tells a story.",
+        heroCtaPrimary: "Book an Appointment",
+        heroCtaSecondary: "View Collection",
+        ratingTitle: "5.0 stars with 7 reviews | Florist in Chania",
+        ratingSub: "Selinou 38 & Agiou Konstantinou 1, Chania 731 32",
+        servicesTitle: "Our Services",
+        servicesSubtitle: "Curated floral services for every moment worth remembering.",
+        service1Title: "Wedding Flowers",
+        service1Text: "Bridal bouquets, ceremony florals, and venue styling tailored to your vision.",
+        service2Title: "Events",
+        service2Text: "Floral concepts for baptisms, corporate events, and private gatherings.",
+        service3Title: "Everyday Bouquets",
+        service3Text: "Fresh daily bouquets for gifts, offices, or your home.",
+        service4Title: "Seasonal Arrangements",
+        service4Text: "Flowers and greenery designed around each season and your style.",
+        galleryTitle: "Featured Arrangements",
+        gallerySubtitle: "Selected creations combining romance with modern floral design.",
+        prod1Title: "Blush Romance",
+        prod1Text: "Roses, peonies, and eucalyptus in soft blush tones.",
+        prod2Title: "Cretan Garden",
+        prod2Text: "Mediterranean flowers and foliage in a refined natural style.",
+        prod3Title: "White Elegance",
+        prod3Text: "White hydrangeas and lisianthus for timeless chic moments.",
+        aboutTitle: "About Us",
+        aboutP1: "Peri Antheon was born from love and true passion for flowers. It was built with personal dedication to serve the floral craft with care and heart.",
+        aboutP2: "Every arrangement is a story — your story.",
+        aboutBadge1: "Top-rated florist in Chania",
+        aboutBadge2: "Handcrafted arrangements with freshly sourced flowers",
+        aboutBadge3: "Personal service and custom floral guidance",
+        trustBadge: "⭐ 5 stars on Google — Top rated florist in Chania",
+        reviewsTitle: "What our clients say",
+        reviewsSubtitle: "Real experiences from people who trusted us for their special occasions.",
+        test1Text: "Exceptional flower quality and wonderful service. My bridal bouquet looked stunning.",
+        test1Name: "- Maria K.",
+        test2Text: "Their arrangements are stylish and long-lasting. The best florist in town.",
+        test2Name: "- George P.",
+        test3Text: "Warm people, creativity, and professionalism. Highly recommended.",
+        test3Name: "- Elena S.",
+        contactTitle: "Contact",
+        contactSubtitle: "Visit us in central Chania or call us to design your next arrangement together.",
+        contactAddressTitle: "Address",
+        contactAddress: "Selinou 38 & Agiou Konstantinou 1, Chania 731 32",
+        contactPhoneTitle: "Phone",
+        contactWebTitle: "Website",
+        contactRatingTitle: "Rating",
+        contactRating: "5.0 stars with 7 reviews - Florist in Chania",
+        appointmentTitle: "Appointment / Contact",
+        appointmentSubtitle: "Fill in your details and WhatsApp will open with a pre-filled message for quick communication.",
+        fieldOccasion: "Occasion",
+        fieldDate: "Preferred date",
+        fieldColors: "Color preferences",
+        fieldMessage: "Message",
+        formSubmit: "Send via WhatsApp",
+        footerBrand: "Peri Antheon",
+        footerDesc: "Elegant floral design studio in Chania focused on quality, beauty, and thoughtful detail.",
+        footerHoursTitle: "Opening Hours",
+        hours1: "Monday - Friday: 09:00 - 20:00",
+        hours2: "Saturday: 09:00 - 17:00",
+        hours3: "Sunday: By appointment",
+        footerContactTitle: "Direct Contact",
+        footerBottomLeft: "© " + new Date().getFullYear() + " Peri Antheon. Crafted with floral love.",
+        footerBottomRight: "Chania, Crete, Greece"
+      }
+    };
+
+    const setLanguage = (lang) => {
+      document.documentElement.lang = lang === "el" ? "el" : "en";
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.dataset.i18n;
+        if (i18n[lang][key]) {
+          el.textContent = i18n[lang][key];
+        }
+      });
+
+      document.querySelectorAll(".lang-toggle button").forEach((btn) => {
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", String(isActive));
+      });
+    };
+
+    document.querySelectorAll(".lang-toggle button").forEach((btn) => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.16 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    const hero = document.querySelector(".hero");
+    const heroBg = document.querySelector(".hero-background");
+    const updateHeroParallax = () => {
+      if (!hero || !heroBg) return;
+      const rect = hero.getBoundingClientRect();
+      const viewportH = window.innerHeight || 1;
+      if (rect.bottom < 0 || rect.top > viewportH) return;
+      const progress = (viewportH - rect.top) / (viewportH + rect.height);
+      const offset = (progress - 0.5) * 40;
+      heroBg.style.transform = "translateY(" + offset.toFixed(2) + "px)";
+    };
+
+    window.addEventListener("scroll", updateHeroParallax, { passive: true });
+    window.addEventListener("resize", updateHeroParallax);
+    updateHeroParallax();
+
+    const header = document.querySelector("header");
+    const backToTop = document.getElementById("backToTop");
+    let lastScrollY = window.scrollY;
+
+    const handleScrollUi = () => {
+      const currentY = window.scrollY;
+      const scrollingDown = currentY > lastScrollY;
+
+      if (currentY > 80 && scrollingDown) {
+        header.classList.add("nav-solid");
+      } else if (!scrollingDown || currentY <= 80) {
+        header.classList.remove("nav-solid");
+      }
+
+      backToTop.classList.toggle("visible", currentY > 400);
+      lastScrollY = currentY;
+    };
+
+    window.addEventListener("scroll", handleScrollUi, { passive: true });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    handleScrollUi();
+
+    const cursor = document.querySelector(".petal-cursor");
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let posX = mouseX;
+    let posY = mouseY;
+
+    window.addEventListener("mousemove", (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+    });
+
+    const renderCursor = () => {
+      posX += (mouseX - posX) * 0.2;
+      posY += (mouseY - posY) * 0.2;
+      cursor.style.left = posX + "px";
+      cursor.style.top = posY + "px";
+      requestAnimationFrame(renderCursor);
+    };
+    renderCursor();
+
+    document.querySelectorAll("a, button").forEach((el) => {
+      el.addEventListener("mouseenter", () => cursor.classList.add("active"));
+      el.addEventListener("mouseleave", () => cursor.classList.remove("active"));
+    });
+
+    const form = document.getElementById("appointmentForm");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const occasion = document.getElementById("occasion").value.trim();
+      const date = document.getElementById("date").value.trim();
+      const colors = document.getElementById("colors").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const lines = [
+        "Γεια σας, θα ήθελα ένα ραντεβού για ανθοσύνθεση.",
+        "Occasion: " + occasion,
+        "Preferred date: " + date,
+        "Color preferences: " + (colors || "-"),
+        "Message: " + (message || "-")
+      ];
+      const text = encodeURIComponent(lines.join("\n"));
+      window.open("https://wa.me/302821002449?text=" + text, "_blank", "noopener");
+    });
+
+    const lightbox = document.getElementById("galleryLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImage.src = "";
+    };
+
+    galleryItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const src = item.dataset.image;
+        const img = item.querySelector("img");
+        lightboxImage.src = src;
+        lightboxImage.alt = img ? img.alt : "Gallery image full screen";
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+      });
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("open")) {
+        closeLightbox();
+      }
+    });
+
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+    setLanguage("el");
+  </script>
+</body>
+</html>
