@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Περί Ανθέων | Florist in Chania</title>
-  <meta name="description" content="Περί Ανθέων - Ανθοπωλείο στα Χανιά με νυφικά, ανθοσυνθέσεις, εποχιακά λουλούδια και μοναδικές δημιουργίες." />
+  <title>Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη | Χανιά</title>
+  <meta name="description" content="Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη στα Χανιά με αποστολή λουλουδιών σε όλο τον κόσμο, γαμήλιες δημιουργίες και αυθημερόν παραδόσεις." />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -185,7 +185,7 @@
 
     .brand-mark {
       width: 92px;
-      height: 46px;
+      height: 60px;
       object-fit: contain;
       filter: drop-shadow(0 4px 10px rgba(53, 80, 62, 0.16));
     }
@@ -640,6 +640,25 @@
       gap: 18px;
     }
 
+    .trust-grid,
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .trust-item,
+    .step-item {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(79, 106, 87, 0.1);
+      box-shadow: 0 10px 24px rgba(79, 106, 87, 0.08);
+      padding: 20px 18px;
+      color: var(--green-dark);
+      font-weight: 700;
+      text-align: center;
+    }
+
     .testimonial {
       padding: 22px 18px;
       position: relative;
@@ -970,7 +989,9 @@
 
       .about-wrap,
       .contact-grid,
-      .footer-grid {
+      .footer-grid,
+      .trust-grid,
+      .steps-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -1035,7 +1056,7 @@
 </head>
 <body>
   <div class="top-announcement" data-i18n="announcementBar">
-    🌸 Ημέρα της Μητέρας — Παράγγειλε την ανθοδέσμη σου τώρα! | Mother's Day — Order your bouquet now!
+    🌍 Αποστολή Λουλουδιών σε όλο τον κόσμο | Worldwide Flower Delivery
   </div>
   <div class="petal-cursor" aria-hidden="true"></div>
   <div class="floating-petals" aria-hidden="true">
@@ -1051,9 +1072,9 @@
 
   <header>
     <div class="container nav">
-      <a class="brand" href="#top" aria-label="Περί Ανθέων αρχική">
-        <img class="brand-mark" src="images/logo.png" alt="Περί Ανθέων logo" />
-        <span class="sr-only" data-i18n="brand">Περί Ανθέων</span>
+      <a class="brand" href="#top" aria-label="Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη αρχική">
+        <img class="brand-mark" src="images/logo.svg" alt="Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη logo" />
+        <span class="sr-only" data-i18n="brand">Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη</span>
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
@@ -1077,11 +1098,10 @@
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="container hero-inner">
         <div class="hero-copy reveal">
-          <h1 data-i18n="heroTitle">Η τέχνη των λουλουδιών στην καρδιά των Χανίων</h1>
+          <h1 data-i18n="heroTitle">Στέλνουμε Αγάπη σε Όλο τον Κόσμο 🌍</h1>
           <div class="hero-divider" aria-hidden="true"></div>
           <p data-i18n="heroText">
-            Στο Περί Ανθέων δημιουργούμε ανθοσυνθέσεις με συναίσθημα, χαρακτήρα και μεσογειακή φινέτσα.
-            Από νυφικές ανθοδέσμες μέχρι καθημερινές ανθοδέσμες, κάθε σύνθεση είναι μια ιστορία.
+            Από τα Χανιά σε κάθε γωνιά της γης — φρέσκα λουλούδια με αγάπη και φροντίδα, όπου κι αν βρίσκεστε.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#appointment" data-i18n="heroCtaPrimary">Κλείστε Ραντεβού</a>
@@ -1091,37 +1111,71 @@
       </div>
     </section>
 
+    <section class="section" id="trust">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="trustTitle">Στέλνουμε Παντού</h2>
+        <div class="trust-grid">
+          <article class="trust-item reveal" data-i18n="trust1">✈️ Αποστολή σε όλη την Ελλάδα</article>
+          <article class="trust-item reveal" data-i18n="trust2">🌍 Διεθνείς Αποστολές</article>
+          <article class="trust-item reveal" data-i18n="trust3">⚡ Παράδοση Αυθημερόν στα Χανιά</article>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="services">
       <div class="container">
         <h2 class="section-title reveal" data-i18n="servicesTitle">Υπηρεσίες</h2>
         <p class="section-subtitle reveal" data-i18n="servicesSubtitle">
-          Προσφέρουμε επιμελημένες floral υπηρεσίες για κάθε στιγμή που αξίζει να μείνει αξέχαστη.
+          Αποστολές με φροντίδα, κομψότητα και συνέπεια για να φτάνει η αγάπη σας εκεί που θέλετε.
         </p>
         <div class="grid-4">
           <article class="service-card reveal">
             <img class="service-image" src="images/608215984_1356719569587625_7530684905355105549_n.jpg" alt="Νυφική ανθοδέσμη με κόκκινα τριαντάφυλλα" />
             <div class="service-icon">💐</div>
-            <h3 data-i18n="service1Title">Γάμος</h3>
-            <p data-i18n="service1Text">Νυφικές ανθοδέσμες, στολισμός εκκλησίας και venue με προσωπική αισθητική.</p>
+            <h3 data-i18n="service1Title">Αποστολή σε όλη την Ελλάδα</h3>
+            <p data-i18n="service1Text">Στέλνουμε φρέσκες ανθοδέσμες σε κάθε πόλη με ασφαλή μεταφορά και άψογη παρουσίαση.</p>
           </article>
           <article class="service-card reveal">
             <img class="service-image" src="images/654368066_1419291999997048_5870167181360514950_n.jpg" alt="Πολύχρωμη ανοιξιάτικη ανθοδέσμη" />
             <div class="service-icon">✨</div>
-            <h3 data-i18n="service2Title">Εκδηλώσεις</h3>
-            <p data-i18n="service2Text">Floral concepts για βαπτίσεις, εταιρικά events και private gatherings.</p>
+            <h3 data-i18n="service2Title">Διεθνείς Αποστολές Λουλουδιών</h3>
+            <p data-i18n="service2Text">Η ανθοδέσμη σας ταξιδεύει σε όλο τον κόσμο, μεταφέροντας συναίσθημα χωρίς σύνορα.</p>
           </article>
           <article class="service-card reveal">
             <img class="service-image" src="images/655051185_1421971339729114_3706716321387393980_n.jpg" alt="Τουλίπες σε έντονες αποχρώσεις" />
             <div class="service-icon">🌸</div>
-            <h3 data-i18n="service3Title">Καθημερινές Ανθοδέσμες</h3>
-            <p data-i18n="service3Text">Φρέσκιες ανθοδέσμες ημέρας για δώρο, χώρο εργασίας ή το σπίτι σας.</p>
+            <h3 data-i18n="service3Title">Γαμήλιες Ανθοσυνθέσεις</h3>
+            <p data-i18n="service3Text">Νυφικές δημιουργίες και στολισμοί που αποτυπώνουν τη μοναδική ιστορία της ημέρας σας.</p>
           </article>
           <article class="service-card reveal">
             <img class="service-image" src="images/661006019_1427684139157834_3290039459349007929_n.jpg" alt="Καλλωπιστικό φυτό σε βιτρίνα ανθοπωλείου" />
             <div class="service-icon">🍃</div>
-            <h3 data-i18n="service4Title">Εποχιακές Συνθέσεις</h3>
-            <p data-i18n="service4Text">Συνδυασμοί λουλουδιών και φυτών που ακολουθούν την εποχή και το στυλ σας.</p>
+            <h3 data-i18n="service4Title">Εποχιακές Δημιουργίες</h3>
+            <p data-i18n="service4Text">Συνθέσεις εμπνευσμένες από την εποχή, με φυσική κομψότητα και μοντέρνο χαρακτήρα.</p>
           </article>
+          <article class="service-card reveal">
+            <img class="service-image" src="images/654956254_1419291786663736_4684500665179874706_n.jpg" alt="Ρομαντικά τριαντάφυλλα σε απαλό ροζ" />
+            <div class="service-icon">🎁</div>
+            <h3 data-i18n="service5Title">Εταιρικά Δώρα</h3>
+            <p data-i18n="service5Text">Κομψές floral προτάσεις για συνεργάτες και πελάτες με επαγγελματική φροντίδα.</p>
+          </article>
+          <article class="service-card reveal">
+            <img class="service-image" src="images/655472059_1419291889997059_8929338051903322123_n.jpg" alt="Πολύχρωμη ανοιξιάτικη ανθοσύνθεση" />
+            <div class="service-icon">⚡</div>
+            <h3 data-i18n="service6Title">Same-Day Delivery Χανιά</h3>
+            <p data-i18n="service6Text">Γρήγορη παράδοση αυθημερόν στα Χανιά για στιγμές που θέλουν άμεση αγάπη.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="howTitle">Πώς λειτουργεί</h2>
+        <div class="steps-grid">
+          <article class="step-item reveal" data-i18n="how1">📞 Επικοινωνήστε μαζί μας</article>
+          <article class="step-item reveal" data-i18n="how2">💐 Επιλέξτε την ανθοδέσμη σας</article>
+          <article class="step-item reveal" data-i18n="how3">✈️ Παραδίδουμε οπουδήποτε</article>
         </div>
       </div>
     </section>
@@ -1175,53 +1229,46 @@
         <article class="about-card reveal">
           <h2 class="section-title" data-i18n="aboutTitle">Σχετικά με εμάς</h2>
           <p data-i18n="aboutP1">
-            Το Περί Ανθέων γεννήθηκε από την αγάπη και το μεράκι γύρω από τα λουλούδια.
-            Δημιουργήθηκε με προσωπική δουλειά και σκοπό να υπηρετεί με πάθος και αγάπη το επάγγελμα.
+            Η Κατερίνα Σαρτζετάκη με πάθος και αγάπη για τα λουλούδια δημιούργησε ένα ανθοπωλείο που δεν γνωρίζει σύνορα.
           </p>
           <p data-i18n="aboutP2">
-            Κάθε ανθοσύνθεση είναι μια ιστορία — η δική σας ιστορία.
+            Από το κέντρο των Χανίων, στέλνουμε χαρά, αγάπη και ομορφιά σε κάθε γωνιά του κόσμου.
           </p>
         </article>
         <aside class="about-highlight reveal">
           <img class="about-photo" src="images/657228165_1422727852986796_7565534410334029864_n.jpg" alt="Τουλίπες λευκές και μπλε σε ανθοδέσμη" />
-          <strong>5.0 ★</strong>
-          <span data-i18n="aboutBadge1">Top-rated florist in Chania</span>
+          <strong>4.9 ★</strong>
+          <span data-i18n="aboutBadge1">Αποστολή λουλουδιών σε όλο τον κόσμο</span>
           <span data-i18n="aboutBadge2">Χειροποίητες συνθέσεις με καθημερινά φρέσκα λουλούδια</span>
-          <span data-i18n="aboutBadge3">Προσωπική εξυπηρέτηση και custom προτάσεις</span>
-          <div class="trust-badge" data-i18n="trustBadge">⭐ 5 αστέρια στο Google — Top rated florist in Chania</div>
+          <span data-i18n="aboutBadge3">Προσωπική εξυπηρέτηση και άμεση παράδοση</span>
+          <div class="trust-badge" data-i18n="trustBadge">⭐ 4.9 αστέρια στο Google — 18 κριτικές</div>
         </aside>
       </div>
     </section>
 
     <section class="section" id="reviews">
       <div class="container">
-        <h2 class="section-title reveal">Google Reviews</h2>
-        <p class="section-subtitle reveal">
-          Αληθινές κριτικές πελατών για την ποιότητα, τη φροντίδα και την εξυπηρέτηση του Περί Ανθέων.
+        <h2 class="section-title reveal" data-i18n="reviewsTitle">Google Reviews</h2>
+        <p class="section-subtitle reveal" data-i18n="reviewsSubtitle">
+          Αληθινές κριτικές πελατών για την ποιότητα, τη φροντίδα και την εξυπηρέτηση του Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη.
         </p>
         <div class="testimonials-grid">
           <article class="testimonial reveal">
             <div class="stars">★★★★★</div>
-            <p>"Needed four small bouquets on short notice, and this flower shop prepared everything fast with incredible attention to detail. Each bouquet was beautifully arranged and clearly made with care. Great service, great quality, highly recommend!"</p>
-            <strong>- Andrei Rakhmanov</strong>
+            <p>"Ότι καλύτερο σε εξυπηρέτηση! Έκανα από Θεσσαλονίκη τηλεφωνικά για να στείλουν μια ανθοδέσμη στα Χανιά και ήταν σαν να μιλούσα σε άτομο που το γνωρίζω!"</p>
+            <strong>- Nikos Ioakimidis</strong>
             <span class="google-badge">Google Review</span>
           </article>
           <article class="testimonial reveal">
             <div class="stars">★★★★★</div>
-            <p>"Πολύ όμορφα λολούδια και ανθη! Και πολύ γλυκιά η εξυπηρέτηση! Ευγενική και προσχαρή! Σίγουρα θα ξαναπάω!"</p>
-            <strong>- Sofia Bertaki</strong>
+            <p>"Σε ένα από τα πιο κεντρικά σημεία της πόλης, το Ανθοπωλείο Σαρτζετάκη με γνώση και μακροχρόνια εμπειρία στο χώρο των λουλουδιών."</p>
+            <strong>- Dimitris Psilopoulos</strong>
             <span class="google-badge">Google Review</span>
           </article>
           <article class="testimonial reveal">
             <div class="stars">★★★★★</div>
-            <p>"Εξαιρετικό κατάστημα με μεγάλη ποικιλία φυτών."</p>
-            <strong>- Kostas Avramopoulos</strong>
-            <span class="google-badge">Google Review</span>
-          </article>
-          <article class="testimonial reveal">
-            <div class="stars">★★★★★</div>
-            <p>"Πολύ ωραία λουλούδια...άψογη εξυπηρέτηση."</p>
-            <strong>- Αναστάσης Σάρρης</strong>
+            <p>"Φιλικότητα, ευγένεια, επαγγελματική και συνεπής εξυπηρέτηση. Ευχαριστώ για την υπέροχη δημιουργία σε ανθοδέσμη σε ιδιαίτερα σημαντική περίσταση."</p>
+            <strong>- Βασίλης Μαλεκάκης</strong>
             <span class="google-badge">Google Review</span>
           </article>
         </div>
@@ -1232,26 +1279,30 @@
       <div class="container">
         <h2 class="section-title reveal" data-i18n="contactTitle">Επικοινωνία</h2>
         <p class="section-subtitle reveal" data-i18n="contactSubtitle">
-          Επισκεφθείτε μας στο κέντρο των Χανίων ή καλέστε μας για να σχεδιάσουμε μαζί την επόμενη ανθοσύνθεσή σας.
+          Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη — Αποστολή Λουλουδιών σε όλο τον κόσμο.
         </p>
         <div class="contact-grid">
           <div class="contact-card reveal">
-            <img class="contact-photo" src="images/655472059_1419291889997059_8929338051903322123_n.jpg" alt="Φρέσκα λουλούδια από το ανθοπωλείο Περί Ανθέων" />
+            <img class="contact-photo" src="images/655472059_1419291889997059_8929338051903322123_n.jpg" alt="Φρέσκα λουλούδια από το ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη" />
             <div class="contact-item">
               <h4 data-i18n="contactAddressTitle">Διεύθυνση</h4>
-              <p data-i18n="contactAddress">Σελίνου 38 & Αγίου Κωνσταντίνου 1, Chania 731 32</p>
+              <p data-i18n="contactAddress">Κωνσταντίνου Μητσοτάκη 27, Χανιά 731 00</p>
             </div>
             <div class="contact-item">
               <h4 data-i18n="contactPhoneTitle">Τηλέφωνο</h4>
-              <a href="tel:+302821002449">2821 002449</a>
+              <a href="tel:+306976301440">697 630 1440</a>
             </div>
             <div class="contact-item">
-              <h4 data-i18n="contactWebTitle">Ιστότοπος</h4>
-              <a href="https://periantheon.gr" target="_blank" rel="noreferrer">periantheon.gr</a>
+              <h4 data-i18n="contactWhatsappTitle">WhatsApp</h4>
+              <a href="https://wa.me/306976301440" target="_blank" rel="noreferrer">+306976301440</a>
+            </div>
+            <div class="contact-item">
+              <h4 data-i18n="contactMapTitle">Google Maps</h4>
+              <a href="https://www.google.com/maps?q=%CE%9A%CF%89%CE%BD%CF%83%CF%84%CE%B1%CE%BD%CF%84%CE%AF%CE%BD%CE%BF%CF%85+%CE%9C%CE%B7%CF%84%CF%83%CE%BF%CF%84%CE%AC%CE%BA%CE%B7+27,+%CE%A7%CE%B1%CE%BD%CE%B9%CE%AC" target="_blank" rel="noreferrer">Κωνσταντίνου Μητσοτάκη 27, Χανιά</a>
             </div>
             <div class="contact-item">
               <h4 data-i18n="contactRatingTitle">Αξιολόγηση</h4>
-              <p data-i18n="contactRating">5.0 stars with 7 reviews - Florist in Chania</p>
+              <p data-i18n="contactRating">4.9 stars with 18 reviews - Florist in Chania</p>
             </div>
           </div>
           <div class="map-wrap reveal">
@@ -1259,8 +1310,8 @@
               loading="lazy"
               allowfullscreen
               referrerpolicy="no-referrer-when-downgrade"
-              title="Map - Peri Antheon Chania"
-              src="https://www.google.com/maps?q=%CE%A3%CE%B5%CE%BB%CE%AF%CE%BD%CE%BF%CF%85+38+%26+%CE%91%CE%B3%CE%AF%CE%BF%CF%85+%CE%9A%CF%89%CE%BD%CF%83%CF%84%CE%B1%CE%BD%CF%84%CE%AF%CE%BD%CE%BF%CF%85+1,+Chania+731+32&output=embed">
+              title="Map - Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη"
+              src="https://www.google.com/maps?q=%CE%9A%CF%89%CE%BD%CF%83%CF%84%CE%B1%CE%BD%CF%84%CE%AF%CE%BD%CE%BF%CF%85+%CE%9C%CE%B7%CF%84%CF%83%CE%BF%CF%84%CE%AC%CE%BA%CE%B7+27,+%CE%A7%CE%B1%CE%BD%CE%B9%CE%AC&output=embed">
             </iframe>
           </div>
         </div>
@@ -1269,7 +1320,7 @@
 
     <section class="section" id="appointment">
       <div class="container">
-        <h2 class="section-title reveal" data-i18n="appointmentTitle">Ραντεβού / Επικοινωνία</h2>
+        <h2 class="section-title reveal" data-i18n="appointmentTitle">Στείλτε Λουλούδια Οπουδήποτε</h2>
         <p class="section-subtitle reveal" data-i18n="appointmentSubtitle">
           Συμπληρώστε τα στοιχεία σας και θα ανοίξει WhatsApp με έτοιμο μήνυμα για άμεση επικοινωνία.
         </p>
@@ -1294,6 +1345,10 @@
               <input id="colors" name="colors" type="text" placeholder="π.χ. λευκό, dusty rose, πράσινο" />
             </div>
             <div class="full">
+              <label class="field-label" for="destination" data-i18n="fieldDestination">Χώρα/Πόλη Αποστολής</label>
+              <input id="destination" name="destination" type="text" placeholder="π.χ. Παρίσι, Γαλλία" required />
+            </div>
+            <div class="full">
               <label class="field-label" for="message" data-i18n="fieldMessage">Μήνυμα</label>
               <textarea id="message" name="message" placeholder="Πείτε μας λίγες λεπτομέρειες για την ανθοσύνθεση που θέλετε..."></textarea>
             </div>
@@ -1310,8 +1365,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h3 data-i18n="footerBrand">Περί Ανθέων</h3>
-          <p data-i18n="footerDesc">Elegant floral design studio στα Χανιά με έμφαση στην ποιότητα, την αισθητική και τη λεπτομέρεια.</p>
+          <h3 data-i18n="footerBrand">Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη</h3>
+          <p data-i18n="footerDesc">Από τα Χανιά με αγάπη — σε όλο τον κόσμο 🌍</p>
           <div class="footer-strip">
             <img src="images/655051185_1421971339729114_3706716321387393980_n.jpg" alt="Ροζ τουλίπες" />
             <img src="images/608215984_1356719569587625_7530684905355105549_n.jpg" alt="Κόκκινη ανθοδέσμη" />
@@ -1330,13 +1385,13 @@
         </div>
         <div class="footer-col">
           <h4 data-i18n="footerContactTitle">Άμεση Επικοινωνία</h4>
-          <a href="tel:+302821002449">2821 002449</a>
-          <a href="mailto:hello@periantheon.gr">hello@periantheon.gr</a>
-          <a href="https://periantheon.gr" target="_blank" rel="noreferrer">periantheon.gr</a>
+          <a href="tel:+306976301440">697 630 1440</a>
+          <a href="https://wa.me/306976301440" target="_blank" rel="noreferrer">+306976301440</a>
+          <a href="https://www.google.com/maps?q=%CE%9A%CF%89%CE%BD%CF%83%CF%84%CE%B1%CE%BD%CF%84%CE%AF%CE%BD%CE%BF%CF%85+%CE%9C%CE%B7%CF%84%CF%83%CE%BF%CF%84%CE%AC%CE%BA%CE%B7+27,+%CE%A7%CE%B1%CE%BD%CE%B9%CE%AC" target="_blank" rel="noreferrer">Κωνσταντίνου Μητσοτάκη 27, Χανιά</a>
         </div>
       </div>
       <div class="footer-bottom">
-        <span data-i18n="footerBottomLeft">© <span id="year"></span> Περί Ανθέων. Με αγάπη για τα λουλούδια.</span>
+        <span data-i18n="footerBottomLeft">© <span id="year"></span> Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη. Από τα Χανιά με αγάπη — σε όλο τον κόσμο 🌍</span>
         <span data-i18n="footerBottomRight">Chania, Crete, Greece</span>
       </div>
     </div>
@@ -1347,7 +1402,7 @@
     <img id="lightboxImage" src="" alt="Gallery image full screen" />
   </div>
 
-  <a class="whatsapp-float" href="https://wa.me/302821002449" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+  <a class="whatsapp-float" href="https://wa.me/306976301440" target="_blank" rel="noreferrer" aria-label="WhatsApp">
     💬
   </a>
   <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">✿</button>
@@ -1355,29 +1410,41 @@
   <script>
     const i18n = {
       el: {
-        brand: "Περί Ανθέων",
-        announcementBar: "🌸 Ημέρα της Μητέρας — Παράγγειλε την ανθοδέσμη σου τώρα! | Mother's Day — Order your bouquet now!",
+        brand: "Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη",
+        announcementBar: "🌍 Αποστολή Λουλουδιών σε όλο τον κόσμο | Worldwide Flower Delivery",
         navServices: "Υπηρεσίες",
         navGallery: "Συνθέσεις",
         navAbout: "Σχετικά",
         navReviews: "Κριτικές",
         navContact: "Επικοινωνία",
-        heroTitle: "Η τέχνη των λουλουδιών στην καρδιά των Χανίων",
-        heroText: "Στο Περί Ανθέων δημιουργούμε ανθοσυνθέσεις με συναίσθημα, χαρακτήρα και μεσογειακή φινέτσα. Από νυφικές ανθοδέσμες μέχρι καθημερινές ανθοδέσμες, κάθε σύνθεση είναι μια ιστορία.",
+        heroTitle: "Στέλνουμε Αγάπη σε Όλο τον Κόσμο 🌍",
+        heroText: "Από τα Χανιά σε κάθε γωνιά της γης — φρέσκα λουλούδια με αγάπη και φροντίδα, όπου κι αν βρίσκεστε.",
         heroCtaPrimary: "Κλείστε Ραντεβού",
         heroCtaSecondary: "Δείτε Συλλογή",
-        ratingTitle: "5.0 stars with 7 reviews | Florist in Chania",
-        ratingSub: "Σελίνου 38 & Αγίου Κωνσταντίνου 1, Chania 731 32",
+        ratingTitle: "4.9 stars with 18 reviews | Florist in Chania",
+        ratingSub: "Κωνσταντίνου Μητσοτάκη 27, Χανιά 731 00",
+        trustTitle: "Στέλνουμε Παντού",
+        trust1: "✈️ Αποστολή σε όλη την Ελλάδα",
+        trust2: "🌍 Διεθνείς Αποστολές",
+        trust3: "⚡ Παράδοση Αυθημερόν στα Χανιά",
         servicesTitle: "Υπηρεσίες",
-        servicesSubtitle: "Προσφέρουμε επιμελημένες floral υπηρεσίες για κάθε στιγμή που αξίζει να μείνει αξέχαστη.",
-        service1Title: "Γάμος",
-        service1Text: "Νυφικές ανθοδέσμες, στολισμός εκκλησίας και venue με προσωπική αισθητική.",
-        service2Title: "Εκδηλώσεις",
-        service2Text: "Floral concepts για βαπτίσεις, εταιρικά events και private gatherings.",
-        service3Title: "Καθημερινές Ανθοδέσμες",
-        service3Text: "Φρέσκιες ανθοδέσμες ημέρας για δώρο, χώρο εργασίας ή το σπίτι σας.",
-        service4Title: "Εποχιακές Συνθέσεις",
-        service4Text: "Συνδυασμοί λουλουδιών και φυτών που ακολουθούν την εποχή και το στυλ σας.",
+        servicesSubtitle: "Αποστολές με φροντίδα, κομψότητα και συνέπεια για να φτάνει η αγάπη σας εκεί που θέλετε.",
+        service1Title: "Αποστολή σε όλη την Ελλάδα",
+        service1Text: "Στέλνουμε φρέσκες ανθοδέσμες σε κάθε πόλη με ασφαλή μεταφορά και άψογη παρουσίαση.",
+        service2Title: "Διεθνείς Αποστολές Λουλουδιών",
+        service2Text: "Η ανθοδέσμη σας ταξιδεύει σε όλο τον κόσμο, μεταφέροντας συναίσθημα χωρίς σύνορα.",
+        service3Title: "Γαμήλιες Ανθοσυνθέσεις",
+        service3Text: "Νυφικές δημιουργίες και στολισμοί που αποτυπώνουν τη μοναδική ιστορία της ημέρας σας.",
+        service4Title: "Εποχιακές Δημιουργίες",
+        service4Text: "Συνθέσεις εμπνευσμένες από την εποχή, με φυσική κομψότητα και μοντέρνο χαρακτήρα.",
+        service5Title: "Εταιρικά Δώρα",
+        service5Text: "Κομψές floral προτάσεις για συνεργάτες και πελάτες με επαγγελματική φροντίδα.",
+        service6Title: "Same-Day Delivery Χανιά",
+        service6Text: "Γρήγορη παράδοση αυθημερόν στα Χανιά για στιγμές που θέλουν άμεση αγάπη.",
+        howTitle: "Πώς λειτουργεί",
+        how1: "📞 Επικοινωνήστε μαζί μας",
+        how2: "💐 Επιλέξτε την ανθοδέσμη σας",
+        how3: "✈️ Παραδίδουμε οπουδήποτε",
         galleryTitle: "Featured Συνθέσεις",
         gallerySubtitle: "Επιλεγμένες δημιουργίες από το ανθοπωλείο μας που συνδυάζουν ρομαντισμό και μοντέρνα αισθητική.",
         prod1Title: "Blush Romance",
@@ -1387,69 +1454,77 @@
         prod3Title: "White Elegance",
         prod3Text: "Λευκές ορτανσίες και lisianthus για ιδιαίτερες, chic στιγμές.",
         aboutTitle: "Σχετικά με εμάς",
-        aboutP1: "Το Περί Ανθέων γεννήθηκε από την αγάπη και το μεράκι γύρω από τα λουλούδια. Δημιουργήθηκε με προσωπική δουλειά και σκοπό να υπηρετεί με πάθος και αγάπη το επάγγελμα.",
-        aboutP2: "Κάθε ανθοσύνθεση είναι μια ιστορία — η δική σας ιστορία.",
-        aboutBadge1: "Top-rated florist in Chania",
+        aboutP1: "Η Κατερίνα Σαρτζετάκη με πάθος και αγάπη για τα λουλούδια δημιούργησε ένα ανθοπωλείο που δεν γνωρίζει σύνορα.",
+        aboutP2: "Από το κέντρο των Χανίων, στέλνουμε χαρά, αγάπη και ομορφιά σε κάθε γωνιά του κόσμου.",
+        aboutBadge1: "Αποστολή λουλουδιών σε όλο τον κόσμο",
         aboutBadge2: "Χειροποίητες συνθέσεις με καθημερινά φρέσκα λουλούδια",
-        aboutBadge3: "Προσωπική εξυπηρέτηση και custom προτάσεις",
-        trustBadge: "⭐ 5 αστέρια στο Google — Top rated florist in Chania",
-        reviewsTitle: "Τι λένε οι πελάτες μας",
-        reviewsSubtitle: "Αληθινές εμπειρίες από ανθρώπους που μας εμπιστεύτηκαν τις πιο σημαντικές στιγμές τους.",
-        test1Text: "Εξαιρετική ποιότητα λουλουδιών και εκπληκτική εξυπηρέτηση. Η νυφική ανθοδέσμη ήταν ονειρική.",
-        test1Name: "- Μαρία Κ.",
-        test2Text: "Οι συνθέσεις τους έχουν άποψη και διάρκεια. Το καλύτερο ανθοπωλείο στην πόλη.",
-        test2Name: "- Γιώργος Π.",
-        test3Text: "Ζεστοί άνθρωποι, δημιουργικότητα και επαγγελματισμός. Το συνιστώ ανεπιφύλακτα.",
-        test3Name: "- Elena S.",
+        aboutBadge3: "Προσωπική εξυπηρέτηση και άμεση παράδοση",
+        trustBadge: "⭐ 4.9 αστέρια στο Google — 18 κριτικές",
+        reviewsTitle: "Google Reviews",
+        reviewsSubtitle: "Αληθινές κριτικές πελατών για την ποιότητα, τη φροντίδα και την εξυπηρέτηση του Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη.",
         contactTitle: "Επικοινωνία",
-        contactSubtitle: "Επισκεφθείτε μας στο κέντρο των Χανίων ή καλέστε μας για να σχεδιάσουμε μαζί την επόμενη ανθοσύνθεσή σας.",
+        contactSubtitle: "Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη — Αποστολή Λουλουδιών σε όλο τον κόσμο.",
         contactAddressTitle: "Διεύθυνση",
-        contactAddress: "Σελίνου 38 & Αγίου Κωνσταντίνου 1, Chania 731 32",
+        contactAddress: "Κωνσταντίνου Μητσοτάκη 27, Χανιά 731 00",
         contactPhoneTitle: "Τηλέφωνο",
-        contactWebTitle: "Ιστότοπος",
+        contactWhatsappTitle: "WhatsApp",
+        contactMapTitle: "Google Maps",
         contactRatingTitle: "Αξιολόγηση",
-        contactRating: "5.0 stars with 7 reviews - Florist in Chania",
-        appointmentTitle: "Ραντεβού / Επικοινωνία",
+        contactRating: "4.9 stars with 18 reviews - Florist in Chania",
+        appointmentTitle: "Στείλτε Λουλούδια Οπουδήποτε",
         appointmentSubtitle: "Συμπληρώστε τα στοιχεία σας και θα ανοίξει WhatsApp με έτοιμο μήνυμα για άμεση επικοινωνία.",
         fieldOccasion: "Περίσταση",
         fieldDate: "Προτιμώμενη ημερομηνία",
         fieldColors: "Χρωματικές προτιμήσεις",
+        fieldDestination: "Χώρα/Πόλη Αποστολής",
         fieldMessage: "Μήνυμα",
         formSubmit: "Αποστολή μέσω WhatsApp",
-        footerBrand: "Περί Ανθέων",
-        footerDesc: "Elegant floral design studio στα Χανιά με έμφαση στην ποιότητα, την αισθητική και τη λεπτομέρεια.",
+        footerBrand: "Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη",
+        footerDesc: "Από τα Χανιά με αγάπη — σε όλο τον κόσμο 🌍",
         footerHoursTitle: "Ώρες Λειτουργίας",
         hours1: "Δευτέρα - Παρασκευή: 09:00 - 20:00",
         hours2: "Σάββατο: 09:00 - 17:00",
         hours3: "Κυριακή: Κατόπιν ραντεβού",
         footerContactTitle: "Άμεση Επικοινωνία",
-        footerBottomLeft: "© " + new Date().getFullYear() + " Περί Ανθέων. Με αγάπη για τα λουλούδια.",
+        footerBottomLeft: "© " + new Date().getFullYear() + " Ανθοπωλείο ΚΑΤΕΡΊΝΑ Σαρτζετάκη. Από τα Χανιά με αγάπη — σε όλο τον κόσμο 🌍",
         footerBottomRight: "Chania, Crete, Greece"
       },
       en: {
-        brand: "Peri Antheon",
-        announcementBar: "🌸 Mother's Day — Order your bouquet now! | Ημέρα της Μητέρας — Παράγγειλε την ανθοδέσμη σου τώρα!",
+        brand: "Katerina Sartzetaki Florist",
+        announcementBar: "🌍 Worldwide Flower Delivery | Αποστολή Λουλουδιών σε όλο τον κόσμο",
         navServices: "Services",
         navGallery: "Arrangements",
         navAbout: "About",
         navReviews: "Reviews",
         navContact: "Contact",
-        heroTitle: "The art of flowers in the heart of Chania",
-        heroText: "At Peri Antheon, we craft floral creations with emotion, character, and Mediterranean elegance. From bridal bouquets to everyday blooms, every arrangement tells a story.",
+        heroTitle: "We Send Love Across the World 🌍",
+        heroText: "From Chania to every corner of the earth - fresh flowers with love and care, wherever you are.",
         heroCtaPrimary: "Book an Appointment",
         heroCtaSecondary: "View Collection",
-        ratingTitle: "5.0 stars with 7 reviews | Florist in Chania",
-        ratingSub: "Selinou 38 & Agiou Konstantinou 1, Chania 731 32",
+        ratingTitle: "4.9 stars with 18 reviews | Florist in Chania",
+        ratingSub: "Konstantinou Mitsotaki 27, Chania 731 00",
+        trustTitle: "We Deliver Everywhere",
+        trust1: "✈️ Delivery across Greece",
+        trust2: "🌍 International Deliveries",
+        trust3: "⚡ Same-Day Delivery in Chania",
         servicesTitle: "Our Services",
-        servicesSubtitle: "Curated floral services for every moment worth remembering.",
-        service1Title: "Wedding Flowers",
-        service1Text: "Bridal bouquets, ceremony florals, and venue styling tailored to your vision.",
-        service2Title: "Events",
-        service2Text: "Floral concepts for baptisms, corporate events, and private gatherings.",
-        service3Title: "Everyday Bouquets",
-        service3Text: "Fresh daily bouquets for gifts, offices, or your home.",
-        service4Title: "Seasonal Arrangements",
-        service4Text: "Flowers and greenery designed around each season and your style.",
+        servicesSubtitle: "Reliable floral delivery with elegance and care, so your love arrives exactly where it should.",
+        service1Title: "Delivery Across Greece",
+        service1Text: "Fresh bouquets shipped to every city with safe transport and beautiful presentation.",
+        service2Title: "International Flower Delivery",
+        service2Text: "Your bouquet travels worldwide, carrying emotion beyond borders.",
+        service3Title: "Wedding Floral Design",
+        service3Text: "Bridal creations and styling that reflect the unique story of your day.",
+        service4Title: "Seasonal Creations",
+        service4Text: "Season-inspired arrangements with natural elegance and modern style.",
+        service5Title: "Corporate Gifts",
+        service5Text: "Elegant floral gifting for partners and clients with professional care.",
+        service6Title: "Same-Day Delivery Chania",
+        service6Text: "Fast same-day delivery in Chania for moments that need immediate care.",
+        howTitle: "How It Works",
+        how1: "📞 Contact us",
+        how2: "💐 Choose your bouquet",
+        how3: "✈️ We deliver anywhere",
         galleryTitle: "Featured Arrangements",
         gallerySubtitle: "Selected creations combining romance with modern floral design.",
         prod1Title: "Blush Romance",
@@ -1459,43 +1534,39 @@
         prod3Title: "White Elegance",
         prod3Text: "White hydrangeas and lisianthus for timeless chic moments.",
         aboutTitle: "About Us",
-        aboutP1: "Peri Antheon was born from love and true passion for flowers. It was built with personal dedication to serve the floral craft with care and heart.",
-        aboutP2: "Every arrangement is a story — your story.",
-        aboutBadge1: "Top-rated florist in Chania",
-        aboutBadge2: "Handcrafted arrangements with freshly sourced flowers",
-        aboutBadge3: "Personal service and custom floral guidance",
-        trustBadge: "⭐ 5 stars on Google — Top rated florist in Chania",
-        reviewsTitle: "What our clients say",
-        reviewsSubtitle: "Real experiences from people who trusted us for their special occasions.",
-        test1Text: "Exceptional flower quality and wonderful service. My bridal bouquet looked stunning.",
-        test1Name: "- Maria K.",
-        test2Text: "Their arrangements are stylish and long-lasting. The best florist in town.",
-        test2Name: "- George P.",
-        test3Text: "Warm people, creativity, and professionalism. Highly recommended.",
-        test3Name: "- Elena S.",
+        aboutP1: "Katerina Sartzetaki built this florist with true passion and love for flowers, creating a shop that knows no borders.",
+        aboutP2: "From the center of Chania, we send joy, love, and beauty to every corner of the world.",
+        aboutBadge1: "Worldwide flower delivery",
+        aboutBadge2: "Handcrafted arrangements with fresh daily flowers",
+        aboutBadge3: "Personal service with fast delivery",
+        trustBadge: "⭐ 4.9 stars on Google - 18 reviews",
+        reviewsTitle: "Google Reviews",
+        reviewsSubtitle: "Real customer reviews for quality, care, and service from Katerina Sartzetaki Florist.",
         contactTitle: "Contact",
-        contactSubtitle: "Visit us in central Chania or call us to design your next arrangement together.",
+        contactSubtitle: "Katerina Sartzetaki Florist - Worldwide Flower Delivery.",
         contactAddressTitle: "Address",
-        contactAddress: "Selinou 38 & Agiou Konstantinou 1, Chania 731 32",
+        contactAddress: "Konstantinou Mitsotaki 27, Chania 731 00",
         contactPhoneTitle: "Phone",
-        contactWebTitle: "Website",
+        contactWhatsappTitle: "WhatsApp",
+        contactMapTitle: "Google Maps",
         contactRatingTitle: "Rating",
-        contactRating: "5.0 stars with 7 reviews - Florist in Chania",
-        appointmentTitle: "Appointment / Contact",
+        contactRating: "4.9 stars with 18 reviews - Florist in Chania",
+        appointmentTitle: "Send Flowers Anywhere",
         appointmentSubtitle: "Fill in your details and WhatsApp will open with a pre-filled message for quick communication.",
         fieldOccasion: "Occasion",
         fieldDate: "Preferred date",
         fieldColors: "Color preferences",
+        fieldDestination: "Delivery Country/City",
         fieldMessage: "Message",
         formSubmit: "Send via WhatsApp",
-        footerBrand: "Peri Antheon",
-        footerDesc: "Elegant floral design studio in Chania focused on quality, beauty, and thoughtful detail.",
+        footerBrand: "Katerina Sartzetaki Florist",
+        footerDesc: "From Chania with love - to the whole world 🌍",
         footerHoursTitle: "Opening Hours",
         hours1: "Monday - Friday: 09:00 - 20:00",
         hours2: "Saturday: 09:00 - 17:00",
         hours3: "Sunday: By appointment",
         footerContactTitle: "Direct Contact",
-        footerBottomLeft: "© " + new Date().getFullYear() + " Peri Antheon. Crafted with floral love.",
+        footerBottomLeft: "© " + new Date().getFullYear() + " Katerina Sartzetaki Florist. From Chania with love - to the whole world 🌍",
         footerBottomRight: "Chania, Crete, Greece"
       }
     };
@@ -1605,6 +1676,7 @@
       const occasion = document.getElementById("occasion").value.trim();
       const date = document.getElementById("date").value.trim();
       const colors = document.getElementById("colors").value.trim();
+      const destination = document.getElementById("destination").value.trim();
       const message = document.getElementById("message").value.trim();
 
       const lines = [
@@ -1612,10 +1684,11 @@
         "Occasion: " + occasion,
         "Preferred date: " + date,
         "Color preferences: " + (colors || "-"),
+        "Delivery Country/City: " + (destination || "-"),
         "Message: " + (message || "-")
       ];
       const text = encodeURIComponent(lines.join("\n"));
-      window.open("https://wa.me/302821002449?text=" + text, "_blank", "noopener");
+      window.open("https://wa.me/306976301440?text=" + text, "_blank", "noopener");
     });
 
     const lightbox = document.getElementById("galleryLightbox");
