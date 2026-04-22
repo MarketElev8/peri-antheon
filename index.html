@@ -45,6 +45,15 @@
       cursor: none;
     }
 
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+    }
+
     .top-announcement {
       background: linear-gradient(90deg, #f7dfe5, #fbeef1);
       color: #5b3842;
@@ -155,15 +164,13 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.18);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(79, 106, 87, 0.1);
+      background: transparent;
       box-shadow: 0 0 0 rgba(0, 0, 0, 0);
       transition: background 0.35s ease, box-shadow 0.35s ease;
     }
 
     header.nav-solid {
-      background: rgba(255, 255, 255, 0.98);
+      background: #fff;
       box-shadow: 0 12px 28px rgba(22, 36, 28, 0.16);
     }
 
@@ -196,6 +203,7 @@
       align-items: center;
       color: var(--muted);
       font-weight: 600;
+      font-family: "Jost", "Segoe UI", "Noto Sans", "Arial", sans-serif;
     }
 
     .nav-links a {
@@ -311,6 +319,7 @@
       margin-bottom: 30px;
       max-width: 520px;
       text-align: center;
+      font-family: "Cormorant Garamond", Georgia, serif;
     }
 
     .hero-actions {
@@ -341,6 +350,7 @@
       padding: 12px 22px;
       border: 1px solid transparent;
       font-weight: 700;
+      font-family: "Jost", "Segoe UI", "Noto Sans", "Arial", sans-serif;
       transition: var(--transition);
     }
 
@@ -488,23 +498,36 @@
     }
 
     .product-card::before {
-      content: "+";
+      content: "";
       position: absolute;
       inset: 0;
-      background: rgba(18, 25, 21, 0);
-      color: rgba(255, 255, 255, 0);
-      display: grid;
-      place-items: center;
-      font-size: 2.8rem;
-      font-weight: 300;
-      line-height: 1;
-      transition: background 0.35s ease, color 0.35s ease;
+      background: rgba(18, 25, 21, 0.42);
+      opacity: 0;
+      transition: opacity 0.35s ease;
       z-index: 2;
     }
 
-    .product-card:hover::before {
-      background: rgba(18, 25, 21, 0.38);
+    .product-card::after {
+      content: "+";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
       color: #fff;
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 3;
+    }
+
+    .product-card:hover::before {
+      opacity: 1;
+    }
+
+    .product-card:hover::after {
+      opacity: 1;
     }
 
     .product-visual {
@@ -635,9 +658,14 @@
     }
 
     .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      display: flex;
+      overflow-x: auto;
+      scrollbar-width: none;
       gap: 18px;
+    }
+
+    .testimonials-grid::-webkit-scrollbar {
+      display: none;
     }
 
     .trust-grid,
@@ -660,6 +688,7 @@
     }
 
     .testimonial {
+      flex: 0 0 calc((100% - 36px) / 3);
       padding: 22px 18px;
       position: relative;
       background: linear-gradient(165deg, #fff 0%, #f9fbf9 100%);
@@ -984,7 +1013,11 @@
       }
 
       .testimonials-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .testimonial {
+        flex-basis: calc((100% - 14px) / 2);
       }
 
       .about-wrap,
@@ -1022,26 +1055,11 @@
       }
 
       .testimonials-grid {
-        display: flex;
-        overflow-x: auto;
         gap: 12px;
-        scroll-snap-type: x mandatory;
-        padding-bottom: 6px;
-      }
-
-      .testimonials-grid::-webkit-scrollbar {
-        height: 6px;
-      }
-
-      .testimonials-grid::-webkit-scrollbar-thumb {
-        background: rgba(79, 106, 87, 0.28);
-        border-radius: 999px;
       }
 
       .testimonial {
-        min-width: 82vw;
-        flex: 0 0 auto;
-        scroll-snap-align: start;
+        flex-basis: 100%;
       }
 
       .hero {
@@ -1694,6 +1712,35 @@
     const lightboxImage = document.getElementById("lightboxImage");
     const lightboxClose = document.getElementById("lightboxClose");
     const galleryItems = document.querySelectorAll(".gallery-item");
+    const reviewsTrack = document.querySelector(".testimonials-grid");
+
+    if (reviewsTrack) {
+      let pauseReviewsAutoScroll = false;
+      let reviewsDirection = 1;
+      const reviewsSpeed = 0.3;
+
+      reviewsTrack.addEventListener("mouseenter", () => {
+        pauseReviewsAutoScroll = true;
+      });
+
+      reviewsTrack.addEventListener("mouseleave", () => {
+        pauseReviewsAutoScroll = false;
+      });
+
+      const animateReviews = () => {
+        if (!pauseReviewsAutoScroll) {
+          const maxScrollLeft = reviewsTrack.scrollWidth - reviewsTrack.clientWidth;
+          if (maxScrollLeft > 0) {
+            if (reviewsTrack.scrollLeft >= maxScrollLeft - 1) reviewsDirection = -1;
+            if (reviewsTrack.scrollLeft <= 0) reviewsDirection = 1;
+            reviewsTrack.scrollLeft += reviewsSpeed * reviewsDirection;
+          }
+        }
+        requestAnimationFrame(animateReviews);
+      };
+
+      requestAnimationFrame(animateReviews);
+    }
 
     const closeLightbox = () => {
       lightbox.classList.remove("open");
